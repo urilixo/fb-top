@@ -1,8 +1,37 @@
-<div class="w-full flex-auto bg-slate-900 py-2 justify-evenly">
+<nav class="hidden lg:block w-full bg-slate-900 py-2 justify-evenly ">
     <div class="place-content-start flex flex-row p-1">
-        <div class="text-3xl text-left bg-slate-800 text-white font-black p-2 px-6 rounded-lg">Logo</div>
-        <div class="text-2xl text-left">Teste 2</div>
-        <%= link_to "View Posts", posts_path %>
-        <%= link_to "New Post", new_post_path %>
+        <div class="text-3xl text-left bg-slate-800 text-white font-black p-2 px-6 rounded-lg">
+            <%= link_to "Logo", root_path %>
+        </div>
+        <div class="flex flex-grow justify-around text-white px-5 self-center font-black rounded-lg">
+            <%= link_to "View Posts", posts_path %>
+            <%= link_to "New Post", new_post_path %>
+        </div>
+        <div class="flex flex-grow justify-around bg-slate-100 text-white px-5 self-center font-black rounded-lg">
+            <%= link_to "placeholder", posts_path %>
+            <%= link_to "placeholder", new_post_path %>
+        </div>
     </div>
-</div>
+</nav>
+
+<nav class="lg:hidden w-full bg-slate-900 py-2 justify-evenly" data-controller="toggle">
+    <div class="place-content-start flex flex-col p-1">
+        <div class="text-3xl text-left bg-slate-800 text-white font-black p-2 px-6 rounded-lg">
+            <%= link_to "Logo", root_path %>
+            <button data-action="click->toggle#menu" type="button" class="block">
+            <i data-toggle-target="hamburger" class="fas fa-bars"></i>
+            <i data-toggle-target="close" class="fas fa-times hidden"></i>
+            </button>
+        </div>
+        <div div data-toggle-target="menu" class="hidden">
+            <div class="flex flex-col flex-grow justify-around text-white px-5 self-center font-black rounded-lg">
+                <%= link_to "View Posts", posts_path %>
+                <%= link_to "New Post", new_post_path %>
+            </div>
+            <div class="flex flex-col flex-grow justify-around bg-slate-100 text-white px-5 self-center font-black rounded-lg">
+                <%= link_to "placeholder", posts_path %>
+                <%= link_to "placeholder", new_post_path %>
+            </div>
+        </div>
+    </div>
+</nav>

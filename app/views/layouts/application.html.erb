@@ -3,6 +3,7 @@
   <head>
     <title>FbTop</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/3e4b1fee27.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -10,14 +11,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body class='h-screen'>
+  <header>
+    <%= render "layouts/navbar" %>
+  </header>
+  <body class='flex flex-col h-screen'>
     <p class="notice"> <%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= render "layouts/navbar" %>
-    <div class="flex flex-row justify-evenly min-h-screen">
+    
+    <div class="flex flex-row flex-grow">
       <%= render "layouts/sidebar" %>
-      <%= yield %>
+        <%= yield %>
     </div>
     
   </body>
